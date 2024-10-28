@@ -1,0 +1,38 @@
+1.What are the advantages and disadvantages of the recursive approach compared to the iterative approach?
+-Advantages of the Recursive Approach
+Simplicity and Clarity: Recursive solutions can be simpler and more elegant, especially for problems that have a natural recursive structure (e.g., factorial, Fibonacci, tree traversals).
+Direct Mapping to Problem Definition: Recursive algorithms often map closely to mathematical definitions, making the code more intuitive for mathematical problems.
+
+-Disadvantages of the Recursive Approach
+Stack Overflow for Large Inputs: Recursive calls use the call stack, which has a limited size. Deep recursion (such as calculating large Fibonacci numbers without memoization) can cause a stack overflow, leading to crashes.
+Higher Memory Consumption: Each recursive call adds a new frame to the call stack, increasing memory usage. This makes recursion less efficient for tasks with many function calls, especially without optimization techniques like tail recursion or memoization.
+
+-Advantages of the Iterative Approach
+Efficiency and Speed: Iterative solutions generally use less memory and run faster because they avoid the overhead of repeated function calls. This makes them more suitable for large datasets or high-performance tasks.
+Avoids Stack Overflow: Iteration doesn’t depend on the call stack, so it can handle larger inputs without risk of stack overflow.
+
+-Disadvantages of the Iterative Approach
+Complexity for Certain Problems: For problems with recursive structures (e.g., tree traversals), iterative solutions can become complex and harder to read, involving additional data structures (e.g., stacks) to mimic recursion.
+Reduced Readability: In some cases, iterative solutions can be less readable or intuitive, especially for problems with a naturally recursive definition, making the code harder to follow or debug.
+
+2.How does memoization improve the performance of the recursive function? Are there any drawbacks?
+-Eliminates Redundant Computation: In a standard recursive Fibonacci function, each Fibonacci number is recalculated many times (e.g., F(5) is recalculated multiple times for larger inputs). Memoization saves previously computed results in a dictionary or list, so when the function needs to recompute a value, it retrieves it from memory instead of recalculating it.
+-Drawbacks of Memoization
+*Increased Memory Usage.
+*Limited Use for Non-Overlapping Problems.
+*Implementation Complexity.
+
+
+3.In what scenarios might you prefer to use a generator function over other implementations?
+1. Handling Large Data Sets.
+2. Streaming Data or Infinite Sequences.
+3. Lazy Evaluation for Efficiency.
+
+4.How does the space complexity differ between these implementations?
+1. Recursive Implementation
+Space Complexity: O(n), where n is the maximum depth of the recursion (usually related to the input size).
+Explanation: Each recursive call adds a new frame to the call stack. For problems with deep recursion (like calculating Fibonacci numbers), this can consume a lot of memory. If you are using additional data structures (like lists) to hold intermediate results, that could further increase space usage.
+2. Iterative Implementation
+Space Complexity: O(1) or O(n), depending on the algorithm.
+O(1): For simple iterations (like iterating through a fixed number of operations or calculating a single Fibonacci number), the space used is constant since you only need a few variables to keep track of the current state.
+O(n): If you are generating a list of results (like storing all Fibonacci numbers up to n), the space complexity would be linear, as you need to store each result in memory.
